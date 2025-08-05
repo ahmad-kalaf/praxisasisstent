@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:praxisassistent/utils/constants.dart';
 
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'package:praxisassistent/utils/theme.dart';
+import 'package:praxisassistent/widgets/login_widget.dart';
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   // Start der Anwendung
   runApp(const PraxisassistentApp());
 }
@@ -16,6 +22,7 @@ class PraxisassistentApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Praxisassistent',
+      theme: theme,
       home: const HomePage(),
     );
   }
@@ -32,42 +39,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // AppBar mit Titel und Hintergrundfarbe
-      appBar: AppBar(
-        title: const Text('Praxisassistent'),
-        centerTitle: true,
-        backgroundColor: kAppBarBackgroundColor,
-        titleTextStyle: TextStyle(
-          fontSize: kDefaultAppBarFontSize,
-          color: kDefaultTextColor,
-        ),
-      ),
-      // Container mit Gradient-Hintergrundfarbe (Farbverlauf)
-      // Dieser Container umschließt die weiteren Widgets im Body der HomePage
-      body: Container(
-        decoration: BoxDecoration(
-          // Gradient-Hintergrundfarbe (Linearer Farbverlauf von unten links nach oben rechts)
-          gradient: LinearGradient(
-            colors: [kScaffoldGradientStartColor, kScaffoldGradientEndColor],
-            begin: Alignment.bottomLeft,
-            end: Alignment.topRight,
-          ),
-        ),
-        child: SafeArea(
-          // Sicherer Bereich, um Inhalte nicht hinter der Stautsleiste oder
-          // anderen UI-Elementen des Betriebssystems zu verstecken
-          child: Center(
-            child: Text(
-              'Willkommen im Praxisassistent',
-              style: TextStyle(
-                fontSize: kDefaultBodyFontSize,
-                color: kDefaultTextColor,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
+    return LoginWidget();
   }
 }

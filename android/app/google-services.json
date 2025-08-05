@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "497166291587",
+    "project_id": "praxisassistent-d229c",
+    "storage_bucket": "praxisassistent-d229c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497166291587:android:87e60fd60905339ca341b6",
+        "android_client_info": {
+          "package_name": "com.praxisassistent.praxisassistent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYTyuAA7cvgm5VzflfsqaorG1fM86zYz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
