@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import "package:praxisassistent/utils/constants.dart";
+import "package:praxisassistent/widgets/account_settings_screen.dart";
+import "package:praxisassistent/widgets/registration_widget.dart";
 
 // Dieses Widget ist für die Anmeldung / Login
 class LoginWidget extends StatefulWidget {
@@ -18,7 +20,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text(AppStrings.loginLabel)),
+      appBar: AppBar(title: Text(AppStrings.loginWidgetTitle)),
       body: Form(
         key: _formKey,
         child: Column(
@@ -59,7 +61,12 @@ class _LoginWidgetState extends State<LoginWidget> {
             ElevatedButton.icon(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  // login
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AccountSettingsScreen(),
+                    ),
+                  );
                 }
               },
               label: Text(AppStrings.btnLabelSignIn),
@@ -69,7 +76,12 @@ class _LoginWidgetState extends State<LoginWidget> {
             // Button zum weiterleiten zur Registrierungsseite (RegistrationWidget),
             // Falls User noch kein Konto hat
             ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegistrationWidget()),
+                );
+              },
               label: Text(AppStrings.btnLabelSignUp),
               icon: Icon(Icons.person_add),
             ),

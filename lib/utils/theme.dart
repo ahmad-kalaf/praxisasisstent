@@ -7,7 +7,7 @@ final ThemeData theme = ThemeData(
     seedColor: kAppBarBackgroundColor,
     brightness: Brightness.light,
   ),
-  scaffoldBackgroundColor: Colors.grey,
+  scaffoldBackgroundColor: kDefaultBodyBackgroundColor,
   appBarTheme: AppBarTheme(
     backgroundColor: kAppBarBackgroundColor,
     centerTitle: true,
@@ -22,13 +22,13 @@ final ThemeData theme = ThemeData(
     bodyMedium: TextStyle(
       fontSize: kDefaultBodyFontSize,
       color: kDefaultTextColor,
+      overflow: TextOverflow.clip,
     ),
     headlineMedium: TextStyle(
       fontSize: kDefaultAppBarFontSize,
       color: kDefaultTextColor,
     ),
   ),
-
   inputDecorationTheme: InputDecorationTheme(
     floatingLabelAlignment: FloatingLabelAlignment.center,
     labelStyle: TextStyle(color: Colors.white),
