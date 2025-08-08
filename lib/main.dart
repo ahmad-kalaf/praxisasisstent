@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:praxisassistent/utils/constants.dart';
 import 'package:praxisassistent/utils/theme.dart';
 import 'package:praxisassistent/widgets/login_widget.dart';
 import 'firebase_options.dart';
@@ -21,7 +22,7 @@ class PraxisassistentApp extends StatelessWidget {
     // MaterialApp-Widget, umschließt die gesamte App
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Praxisassistent',
+      title: AppStrings.materialAppTitle,
       theme: theme,
       home: const HomePage(),
     );

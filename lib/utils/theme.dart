@@ -48,11 +48,11 @@ final ThemeData theme = ThemeData(
     ),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      backgroundColor: kAppBarBackgroundColor,
-      foregroundColor: kDefaultTextColor,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+    style: ButtonStyle(
+      backgroundColor: WidgetStatePropertyAll(kButtonBackgroundColor),
+      foregroundColor: WidgetStatePropertyAll(kDefaultTextColor),
+      alignment: Alignment.center,
+      elevation: WidgetStatePropertyAll(kButtonElevation),
     ),
   ),
 );
