@@ -38,6 +38,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                 if (value == null || value.isEmpty) {
                   return AppStrings.errorInputEMail;
                 }
+                if (!AppStrings.emailRegExp.hasMatch(value)){
+                  return AppStrings.invalidEMail;
+                }
                 return null;
               },
               controller: _eMailAdressController,
@@ -52,6 +55,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return AppStrings.errorInputPassword;
+                }
+                if (!AppStrings.passwordRegExp.hasMatch(value)){
+                  return AppStrings.invalidPassword;
                 }
                 return null;
               },

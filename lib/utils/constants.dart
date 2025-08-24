@@ -23,10 +23,17 @@ class AppStrings {
   static const String noAccountQuestion = 'Noch kein Konto?';
   static const String txtFormFieldLabelEMail = 'E-Mail';
   static const String txtFormFieldLabelPassword = 'Passwort';
-  static const String errorInputEMail = 'Bitte E-Mail-Adresse eingeben!';
+  static const String errorInputEMail = 'Bitte E-Mail eingeben!';
+  static const String invalidEMail = 'Ungültiges E-Mail Format';
   static const String errorInputPassword = 'Bitte Passwort eingeben!';
+  static const String invalidPassword = 'Ungültiges Passwort Format';
   static const String btnLabelSignIn = 'Anmelden';
   static const String btnLabelSignUp = 'Registrieren';
+
+  // Regex zum validieren der E-Mail-Adresse
+  static RegExp emailRegExp = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+  // Regex zum validieren des Passworts
+  static RegExp passwordRegExp = RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$%^&*()_\-+=\[\]{};:,.<>?]).{8,}$');
 
   static const String txtFormFieldLabelConfirmPassword = 'Passwort wiederholen';
 
