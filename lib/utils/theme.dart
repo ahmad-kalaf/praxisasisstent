@@ -55,4 +55,6 @@ final ThemeData theme = ThemeData(
       elevation: WidgetStatePropertyAll(kButtonElevation),
     ),
   ),
+  dialogTheme: DialogThemeData(backgroundColor: kDefaultBodyBackgroundColor),
+  iconTheme: IconThemeData(color: Colors.white)
 );
