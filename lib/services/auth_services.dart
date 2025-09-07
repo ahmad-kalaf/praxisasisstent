@@ -7,18 +7,17 @@ class AuthServices {
 
   Stream<User?> get authStateChanges => firebaseAuth.userChanges();
 
+  Future<void> sendEmailVerification() async {
+    await currentUser?.sendEmailVerification();
+  }
+
   Future<User?> reloadCurrentUser() async {
     try {
       await currentUser?.reload();
       return currentUser;
     } on FirebaseAuthException {
-      // if (e.code == 'user-disabled' || e.code == 'user-not-found') {
-      //   // Lokale Abmeldung erzwingen
       await signOut();
       return null;
-      // } else {
-      //   rethrow; // andere Fehler weiterwerfen
-      // }
     }
   }
 

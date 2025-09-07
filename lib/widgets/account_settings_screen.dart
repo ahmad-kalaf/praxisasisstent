@@ -1,8 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:praxisassistent/services/auth_services.dart';
-import 'package:praxisassistent/sub_widgets/confirm_password_dialog.dart';
 import 'package:praxisassistent/sub_widgets/sign_out_button.dart';
 import 'package:praxisassistent/utils/constants.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +13,6 @@ class AccountSettingsScreen extends StatefulWidget {
 }
 
 class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
-  // Gibt an, ob der Benutzer authentifiziert ist (z.B. Passwort bestätigt)
   late final AuthServices auth;
 
   @override
