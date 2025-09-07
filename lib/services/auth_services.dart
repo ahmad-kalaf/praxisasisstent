@@ -8,7 +8,25 @@ class AuthServices {
   Stream<User?> get authStateChanges => firebaseAuth.userChanges();
 
   Future<void> sendEmailVerification() async {
-    await currentUser?.sendEmailVerification();
+    try {
+      await currentUser?.sendEmailVerification();
+    } catch (e) {
+      if (e is FirebaseAuthException) {
+        if (e.code == 'user-already-verified') {
+          await reloadCurrentUser();
+        } else if (e.code == 'user-not-found') {
+          await signOut();
+        } else if (e.code == 'user-disabled') {
+          throw Exception('Benutzerkonto wurde vom Administrator deaktiviert.');
+        } else if (e.code == 'too-many-requests') {
+          throw Exception('Zu viele Anfragen. Bitte später erneut versuchen.');
+        } else {
+          throw Exception('Fehler bei der E-Mail-Bestätigung: ${e.message}');
+        }
+      } else {
+        rethrow;
+      }
+    }
   }
 
   Future<User?> reloadCurrentUser() async {
